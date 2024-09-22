@@ -2,17 +2,34 @@ package com.datadesign.datadesign.entity;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Department {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long departmentId;
-    private String departmantName;
-    private String departmentAddress;
-    private String departmentCode;
 
+    @NotBlank(message = "Please Add Department name")
+    //@Length(max = 5,min = 1)
+    //@Size(max = 10,min = 0)
+    private String departmentName;
+
+    private String departmentAddress;
+
+    private String departmentCode;
+   /*
     public Long getDepartmentId() {
         return departmentId;
     }
@@ -21,12 +38,12 @@ public class Department {
         this.departmentId = departmentId;
     }
 
-    public String getDepartmantName() {
-        return departmantName;
+    public String getDepartmentName() {
+        return departmentName;
     }
 
-    public void setDepartmantName(String departmantName) {
-        this.departmantName = departmantName;
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
     }
 
     public String getDepartmentAddress() {
@@ -47,7 +64,7 @@ public class Department {
 
     public Department(Long departmentId, String departmantName, String departmentAddress, String departmentCode) {
         this.departmentId = departmentId;
-        this.departmantName = departmantName;
+        this.departmentName = departmantName;
         this.departmentAddress = departmentAddress;
         this.departmentCode = departmentCode;
     }
@@ -59,9 +76,9 @@ public class Department {
     public String toString() {
         return "Department{" +
                 "departmentId=" + departmentId +
-                ", departmantName='" + departmantName + '\'' +
+                ", departmantName='" + departmentName + '\'' +
                 ", departmentAddress='" + departmentAddress + '\'' +
                 ", departmentCode='" + departmentCode + '\'' +
                 '}';
-    }
+    }*/
 }
