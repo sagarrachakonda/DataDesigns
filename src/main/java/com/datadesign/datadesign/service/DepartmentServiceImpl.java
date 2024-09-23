@@ -1,11 +1,13 @@
 package com.datadesign.datadesign.service;
 
+import com.datadesign.datadesign.ExceptionHandling.DepartmentNotFoundException;
 import com.datadesign.datadesign.Repository.DepartmentRepo;
 import com.datadesign.datadesign.entity.Department;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class DepartmentServiceImpl implements DepartmentService{
@@ -27,8 +29,13 @@ public class DepartmentServiceImpl implements DepartmentService{
     }
 
     @Override
-    public Department fetchDepartmentById(Long departmentId) {
-        return departmentRepo.findById(departmentId).get();
+    public Department fetchDepartmentById(Long departmentId) throws DepartmentNotFoundException {
+
+        Optional<Department> department = departmentRepo.findById(departmentId);
+        if(!department.isPresent()){
+            throw new DepartmentNotFoundException("Department not Available");
+        }
+        return department.get();
     }
 
     @Override

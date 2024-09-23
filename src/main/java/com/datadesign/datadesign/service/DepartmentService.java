@@ -1,5 +1,6 @@
 package com.datadesign.datadesign.service;
 
+import com.datadesign.datadesign.ExceptionHandling.DepartmentNotFoundException;
 import com.datadesign.datadesign.entity.Department;
 
 import java.util.List;
@@ -9,7 +10,7 @@ public interface DepartmentService {
 
     public List<Department> fetchDepartmentList();
 
-    public Department fetchDepartmentById(Long departmentId);
+    public Department fetchDepartmentById(Long departmentId) throws DepartmentNotFoundException;
 
     public void deleteDepartmentById(Long departmentId);
 

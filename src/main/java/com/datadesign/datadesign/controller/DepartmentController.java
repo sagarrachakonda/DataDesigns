@@ -1,5 +1,6 @@
 package com.datadesign.datadesign.controller;
 
+import com.datadesign.datadesign.ExceptionHandling.DepartmentNotFoundException;
 import com.datadesign.datadesign.entity.Department;
 import com.datadesign.datadesign.service.DepartmentService;
 import com.datadesign.datadesign.service.DepartmentServiceImpl;
@@ -32,7 +33,7 @@ public class DepartmentController {
  }
 
  @GetMapping("/departments/{id}")
-    public Department fetchDepartmentById(@PathVariable("id") Long departmentId){
+    public Department fetchDepartmentById(@PathVariable("id") Long departmentId) throws DepartmentNotFoundException {
         return departmentService.fetchDepartmentById(departmentId);
  }
  @DeleteMapping("/departments/{id}")
