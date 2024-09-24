@@ -28,8 +28,8 @@ public class DepartmentController {
 
  @GetMapping("/departments")
  public List<Department> fetchDeptList(){
-     LOGGER.info("Inside fetchDeptList of DepartmentController");
-     return departmentService.fetchDepartmentList();
+        LOGGER.info("Inside fetchDeptList of DepartmentController");
+        return departmentService.fetchDepartmentList();
  }
 
  @GetMapping("/departments/{id}")
@@ -38,19 +38,19 @@ public class DepartmentController {
  }
  @DeleteMapping("/departments/{id}")
  public String deleteDepartmentById(@PathVariable("id")Long departmentId){
-         LOGGER.info("Inside deleteDepartmentById of DepartmentController");
+        LOGGER.info("Inside deleteDepartmentById of DepartmentController");
         departmentService.deleteDepartmentById(departmentId);
         return "Deleted Department Successfilly";
  }
  @PutMapping("/departments/{id}")
  public Department updateDepartment(@PathVariable("id") Long departmentId, @RequestBody Department department){
-     LOGGER.info("Inside updateDepartment of DepartmentController");
+        LOGGER.info("Inside updateDepartment of DepartmentController");
         return departmentService.updateDepartment(departmentId,department);
  }
 
  @GetMapping("/departments/name/{name}")
  public Department fetchDepartmentByName(@PathVariable("name") String departmentName){
-     LOGGER.info("Inside fetchDepartmentByName of DepartmentController");
+        LOGGER.info("Inside fetchDepartmentByName of DepartmentController");
         return departmentService.fetchDepartmentByName(departmentName);
  }
 }
