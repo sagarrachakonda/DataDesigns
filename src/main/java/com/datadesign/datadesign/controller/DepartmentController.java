@@ -40,7 +40,7 @@ public class DepartmentController {
  public String deleteDepartmentById(@PathVariable("id")Long departmentId){
         LOGGER.info("Inside deleteDepartmentById of DepartmentController");
         departmentService.deleteDepartmentById(departmentId);
-        return "Deleted Department Successfilly";
+        return "Deleted Department Successfully";
  }
  @PutMapping("/departments/{id}")
  public Department updateDepartment(@PathVariable("id") Long departmentId, @RequestBody Department department){

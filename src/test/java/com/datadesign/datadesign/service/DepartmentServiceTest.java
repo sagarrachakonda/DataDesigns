@@ -3,6 +3,7 @@ package com.datadesign.datadesign.service;
 import com.datadesign.datadesign.Repository.DepartmentRepo;
 import com.datadesign.datadesign.entity.Department;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,7 @@ class DepartmentServiceTest {
     }
 
     @Test
+    @DisplayName("Get Data based on Valid Department Name")
     public void whenValidDepartmentName_thenDepartmentShouldfound(){
           String departmentName = "DSA";
         Department found = departmentService.fetchDepartmentByName(departmentName);
@@ -45,6 +47,7 @@ class DepartmentServiceTest {
     }
 
     @Test
+    @DisplayName("Get Null Data based on InValid Department Name")
     public void whenInValidDepartmentName_thenDepartmentShouldfound(){
         String departmentName = "NDA";
         Department found = departmentService.fetchDepartmentByName(departmentName);
