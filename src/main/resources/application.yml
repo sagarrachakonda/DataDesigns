@@ -1,0 +1,72 @@
+server:
+  port: 8082
+
+spring:
+  profiles:
+    active: uat
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  application:
+    name: datadesign
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    url: jdbc:mysql://localhost:3306/dcbapp_dev
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+welcomemsg:
+  config: Welcome to Data Centre Sagar
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: uat
+  application:
+    name: datadesign
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    url: jdbc:mysql://localhost:3306/dcbapp_uat
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+welcomemsg:
+  config: Welcome to Data Centre Sagar
+
+management:
+   endpoints:
+     web:
+       exposure:
+         include: "*"
+         exclude: "env,beans"
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prod
+  application:
+    name: datadesign
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    url: jdbc:mysql://localhost:3306/dcbapp_prod
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+welcomemsg:
+  config: Welcome to Data Centre Sagar
