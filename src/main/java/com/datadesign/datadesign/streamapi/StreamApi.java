@@ -64,6 +64,14 @@ public class StreamApi {
                 )).collect(Collectors.toList());
         System.out.println(filteremployee);
 
+        //filter name starting with s
+        System.out.println("filter name starting with s");
+        List<Employee> emp = employees
+                        .stream()
+                        .filter(employee -> employee.getFirstName().startsWith("s"))
+                                .collect(Collectors.toList());
+        System.out.println(emp);
+
         //find first
         //optional is used if we have the value or if we dont have the value
         System.out.println("find first of increased salary");
